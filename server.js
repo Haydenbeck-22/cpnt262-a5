@@ -18,6 +18,8 @@ mongoose.connect(
   .catch(function(err){
     console.log(err)
   })
+app.use(express.static('public'))
+
   //Define schema for image properties
   const carSchema = new mongoose.Schema({
     id: Number,
@@ -29,6 +31,7 @@ mongoose.connect(
   });
   //compile schema into model
   const car = mongoose.model('car', carSchema);
+
 
 // List entry route
 app.get('/api/cars', (req, res) => {
